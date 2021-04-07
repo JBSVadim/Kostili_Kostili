@@ -8,8 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nickname: {
-        field: "nickname",
+      nickName: {
+        field: "nickName",
         allowNull: false,
         type: Sequelize.STRING(128),
         validate: {
@@ -17,7 +17,7 @@ module.exports = {
           notEmpty: true
         }
       },
-      real_name: {
+      realName: {
         field: "realName",
         type: Sequelize.STRING(128)
       },
@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       superpowers: {
-        field: "abilitys",
+        field: "superpowers",
         allowNull: false,
         type: Sequelize.STRING(128),
         validata: {
@@ -34,8 +34,8 @@ module.exports = {
           notEmpty: true
         }
       },
-      catch_prhase: {
-        field: "catch_phrase",
+      catchPrhase: {
+        field: "catchPrhase",
         type: Sequelize.TEXT
       },
       image: {

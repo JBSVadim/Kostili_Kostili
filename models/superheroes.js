@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Superheroes.init({
-    nickname: DataTypes.STRING,
-    real_name: DataTypes.STRING,
+    nickName: DataTypes.STRING,
+    realName: DataTypes.STRING,
     description: DataTypes.TEXT,
     superpowers: DataTypes.STRING,
-    catch_prhase: DataTypes.TEXT,
+    catchPrhase: DataTypes.TEXT,
     image: DataTypes.TEXT
   }, {
     sequelize,
