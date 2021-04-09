@@ -25,7 +25,7 @@ module.exports.getAllHeroes = async(req,res,ext) => {
     const { pagination = { } } = req;
     const heroes = await Superheroes.findAll({ 
       attributes: {
-        exclude: ['real_name'],
+        exclude: ['realName'],
       },
       ...pagination,
     });
@@ -51,7 +51,7 @@ module.exports.getHero = async (req, res, next) => {
     } = req;
 
     const hero = await Superheroes.findByPk(id, {
-      attributes: { exclude: ['real_name']},
+      attributes: { exclude: ['realName']},
     });
 
     if(!hero) {
@@ -79,9 +79,11 @@ module.exports.updateHero = async(req,res,next) => {
       returning: true,
     });
 
-    if(rowCount !== 1) {
+    if(rowsCount !== 1) {
       return next(createError(400, 'Hero cant be updated'))
     }
+
+    res.send({data: updatedHero})
   }
   catch (err) {
     next(err)
@@ -99,7 +101,7 @@ module.exports.deleteHero = async(req,res,next) => {
     if (rowsCount !== 1) {
       return next(createError(404, 'Hero not found'))
     }
-    res.send({ data: result});
+    res.send({ data: 'Out of business'});
   }
   catch (err) {
     next(err)

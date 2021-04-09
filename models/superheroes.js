@@ -18,11 +18,15 @@ module.exports = (sequelize, DataTypes) => {
     realName: DataTypes.STRING,
     description: DataTypes.TEXT,
     superpowers: DataTypes.STRING,
-    catchPrhase: DataTypes.TEXT,
-    image: DataTypes.TEXT
+    catchPrhase: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Superheroes',
+    tableName: 'Superheroes'
   });
+  Superheroes.associate = function(models) {
+        Superheroes.hasMany(models.HeroesImages, {
+      foreignKey: 'heroId',
+    })
   return Superheroes;
-};
+};}
